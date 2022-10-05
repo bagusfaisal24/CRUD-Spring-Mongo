@@ -1,6 +1,6 @@
 package com.example.springmongo.service;
 
-import com.example.springmongo.model.Product;
+import com.example.springmongo.domain.Product;
 
 import java.util.List;
 

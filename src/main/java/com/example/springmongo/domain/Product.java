@@ -1,4 +1,4 @@
-package com.example.springmongo.model;
+package com.example.springmongo.domain;
 
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,5 +15,4 @@ public class Product {
     private String name;
     private Integer qty;
     private Float price;
-    private List<String> tags;
 }

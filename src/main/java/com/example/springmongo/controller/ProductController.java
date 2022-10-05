@@ -1,12 +1,12 @@
 package com.example.springmongo.controller;
 
-import com.example.springmongo.model.Product;
+import com.example.springmongo.domain.DtoProduct;
+import com.example.springmongo.domain.Product;
+import com.example.springmongo.service.ApiAdapter;
 import com.example.springmongo.service.ProductSvc;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/products")
@@ -14,17 +14,16 @@ import java.util.List;
 public class ProductController {
 
     private final ProductSvc productSvc;
+    private final ApiAdapter apiAdapter;
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody Product product){
-        Product prodctCreated = productSvc.create(product);
-        return ResponseEntity.ok(prodctCreated);
+    public ResponseEntity<Object> create(@RequestBody DtoProduct product){
+        return apiAdapter.createNew(product);
     }
 
     @GetMapping
-    public ResponseEntity<?> listProduct(){
-        List<Product> list = productSvc.findAll();
-        return ResponseEntity.ok(list);
+    public ResponseEntity<Object> listProduct(){
+        return apiAdapter.findAll();
     }
 
     @GetMapping("/{id}")
