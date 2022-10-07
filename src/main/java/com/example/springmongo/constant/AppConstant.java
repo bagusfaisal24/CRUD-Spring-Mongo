@@ -5,6 +5,9 @@ public class AppConstant {
     private AppConstant() {}
 
     public static final String DEFAULT_SYSTEM = "SYSTEM";
+    public static final String UNKNOWN_ERROR = "Happened unknown error!";
+    public static final String DATA_NOT_FOUND = "Data not found!";
+    public static final String SUCCESS = "Success!";
 
     public static enum ResponseCode {
 

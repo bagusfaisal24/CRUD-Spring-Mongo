@@ -11,15 +11,14 @@ public class ResponseUtil {
     private ResponseUtil() {
     }
 
-    public static <T> ResponseEntity<Object> build(ResponseCode responseCode, T data, HttpStatus httpStatus) {
-        return new ResponseEntity<>(build(responseCode, data, httpStatus.isError()), httpStatus);
+    public static <T> ResponseEntity<Object> build(String message, T data, HttpStatus httpStatus) {
+        return new ResponseEntity<>(build(message, data, httpStatus.isError()), httpStatus);
     }
 
-    private static <T> ApiResponse<T> build(ResponseCode responseCode, T data, boolean error) {
+    private static <T> ApiResponse<T> build(String message, T data, boolean error) {
         return ApiResponse.<T>builder()
                 .status(ApiResponseStatus.builder()
-                        .code(responseCode.getCode())
-                        .message(responseCode.getMessage())
+                        .message(message)
                         .build())
                 .timestamp(LocalDateTime.now())
                 .data(data)

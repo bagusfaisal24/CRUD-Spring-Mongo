@@ -16,8 +16,6 @@ import lombok.NoArgsConstructor;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class ApiResponseStatus {
 
-    private String code;
-    
     private String message;
     
 }

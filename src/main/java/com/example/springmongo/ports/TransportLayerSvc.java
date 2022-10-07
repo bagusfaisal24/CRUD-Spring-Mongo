@@ -12,5 +12,7 @@ public interface TransportLayerSvc {
     ResponseEntity<Object>  findById(String id);
 
     ResponseEntity<Object>  update(String id, DtoProduct dtoProduct);
+    ResponseEntity<Object>  delete(String id);
+
 
 }
