@@ -18,10 +18,8 @@ services:
 
 volumes:
   mongodb-data:
-    external: true
   mongodb-config:
-    external: true
 
 networks:
   my-network:
-    external: true
+    driver: bridge
