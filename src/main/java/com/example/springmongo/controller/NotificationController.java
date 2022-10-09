@@ -4,10 +4,7 @@ import com.example.springmongo.domain.form.NotificationForm;
 import com.example.springmongo.service.NotificationSvc;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/notifications")
@@ -16,7 +13,7 @@ public class NotificationController {
 
     private final NotificationSvc notificationSvc;
 
-    @GetMapping
+    @PostMapping
     public ResponseEntity<Object> getNotif(@RequestBody NotificationForm form){
         return notificationSvc.getNotif(form);
     }
