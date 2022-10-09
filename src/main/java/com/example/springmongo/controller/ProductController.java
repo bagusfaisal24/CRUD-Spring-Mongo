@@ -1,6 +1,6 @@
 package com.example.springmongo.controller;
 
-import com.example.springmongo.domain.DtoProduct;
+import com.example.springmongo.domain.form.DtoProduct;
 import com.example.springmongo.service.ApiAdapter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

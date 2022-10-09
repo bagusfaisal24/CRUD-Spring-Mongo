@@ -1,21 +1,18 @@
-package com.example.springmongo.domain;
+package com.example.springmongo.domain.form;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Id;
-
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class DtoProduct {
+public class NotificationForm {
 
-    private String id;
-    private String name;
-    private Integer qty;
-    private Float price;
-    private String typeMessage;
+    public static final String READ_="read";
+    public static final String UNREAD_="unread";
+
+    private String filter;
 }

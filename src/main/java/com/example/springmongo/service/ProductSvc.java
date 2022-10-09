@@ -1,10 +1,8 @@
 package com.example.springmongo.service;
 
-import com.example.springmongo.domain.DtoProduct;
+import com.example.springmongo.domain.form.DtoProduct;
 import com.example.springmongo.domain.Product;
 import org.springframework.http.ResponseEntity;
-
-import java.util.List;
 
 public interface ProductSvc {
 

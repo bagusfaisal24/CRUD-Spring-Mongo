@@ -1,6 +1,6 @@
 package com.example.springmongo.queue;
 
-import com.example.springmongo.domain.DtoProduct;
+import com.example.springmongo.domain.form.DtoProduct;
 import com.example.springmongo.service.PubSubAdapter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;

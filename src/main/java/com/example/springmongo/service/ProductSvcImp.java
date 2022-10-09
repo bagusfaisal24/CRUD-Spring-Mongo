@@ -1,7 +1,7 @@
 package com.example.springmongo.service;
 
 import com.example.springmongo.constant.AppConstant;
-import com.example.springmongo.domain.DtoProduct;
+import com.example.springmongo.domain.form.DtoProduct;
 import com.example.springmongo.domain.Product;
 import com.example.springmongo.domain.ResponseUtil;
 import com.example.springmongo.repository.ProductRepository;

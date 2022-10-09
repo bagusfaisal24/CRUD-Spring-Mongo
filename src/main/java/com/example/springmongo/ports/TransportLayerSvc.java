@@ -1,6 +1,6 @@
 package com.example.springmongo.ports;
 
-import com.example.springmongo.domain.DtoProduct;
+import com.example.springmongo.domain.form.DtoProduct;
 import org.springframework.http.ResponseEntity;
 
 public interface TransportLayerSvc {

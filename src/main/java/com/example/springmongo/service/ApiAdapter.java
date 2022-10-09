@@ -1,6 +1,6 @@
 package com.example.springmongo.service;
 
-import com.example.springmongo.domain.DtoProduct;
+import com.example.springmongo.domain.form.DtoProduct;
 import com.example.springmongo.domain.Product;
 import com.example.springmongo.ports.TransportLayerSvc;
 import org.springframework.beans.factory.annotation.Autowired;

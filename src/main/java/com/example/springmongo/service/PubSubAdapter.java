@@ -1,12 +1,9 @@
 package com.example.springmongo.service;
 
-import com.example.springmongo.constant.AppConstant;
-import com.example.springmongo.domain.DtoProduct;
+import com.example.springmongo.domain.form.DtoProduct;
 import com.example.springmongo.domain.Product;
-import com.example.springmongo.domain.ResponseUtil;
 import com.example.springmongo.ports.TransportLayerSvc;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
