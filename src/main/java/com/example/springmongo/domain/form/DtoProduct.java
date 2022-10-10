@@ -18,4 +18,6 @@ public class DtoProduct {
     private Integer qty;
     private Float price;
     private String typeMessage;
+
+    private String key;
 }
