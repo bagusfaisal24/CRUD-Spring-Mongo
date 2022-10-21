@@ -28,6 +28,20 @@ services:
       POSTGRES_PASSWORD: 'SevenEightTwo782' # Change to your unique password
     networks:
       - my-network
+  mysql:
+    image: mysql:5.7
+    restart: always
+    container_name: mysql
+    environment:
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - mysql_db:/var/lib/mysql
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: 'rabbitmq-local'
@@ -53,6 +67,7 @@ volumes:
   postgre-data:
   rabbitmq-log:
   rabbitmq-data:
+  mysql_db:
   cache:
     driver: local
 

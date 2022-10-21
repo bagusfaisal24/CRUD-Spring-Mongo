@@ -28,18 +28,18 @@ public class NotificationSvcImpl implements NotificationSvc{
     @Override
     public ResponseEntity<Object> getNotif(NotificationForm form) {
         try {
-            List<Notification> products = repository.findAll();
+            List<Notification> notifications = repository.findAll();
             if (form != null &&  form.getFilter() != null && form.getFilter().equals(NotificationForm.READ_)){
-                products = products.stream()
+                notifications = notifications.stream()
                         .filter(Notification::is_read)
                         .collect(Collectors.toList());
             } else if (form != null &&  form.getFilter() != null && form.getFilter().equals(NotificationForm.UNREAD_)){
-                products = products.stream()
+                notifications = notifications.stream()
                         .filter(v->!v.is_read())
                         .collect(Collectors.toList());
             }
 
-            return ResponseUtil.build(AppConstant.SUCCESS, products, HttpStatus.OK);
+            return ResponseUtil.build(AppConstant.SUCCESS, notifications, HttpStatus.OK);
         }catch (Exception e){
             e.printStackTrace();
             return ResponseUtil.build(AppConstant.UNKNOWN_ERROR, null, HttpStatus.INTERNAL_SERVER_ERROR);
