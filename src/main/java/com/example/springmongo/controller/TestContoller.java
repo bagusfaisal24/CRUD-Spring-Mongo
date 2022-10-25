@@ -11,6 +11,6 @@ public class TestContoller {
 
     @GetMapping
     public String helloWorld(){
-        return "Hello World";
+        return "Hello Springboot";
     }
 }
