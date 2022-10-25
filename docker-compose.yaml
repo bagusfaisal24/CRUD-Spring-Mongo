@@ -15,13 +15,64 @@ services:
       MONGO_INITDB_DATABASE: alterra
     networks:
       - my-network
-
+  postgresql:
+    image: postgres:latest
+    container_name: postgresql
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgre-data:/var/lib/postgresql/data
+    environment:
+      # Default user is -> postgres
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_PASSWORD: 'SevenEightTwo782' # Change to your unique password
+    networks:
+      - my-network
+  mysql:
+    image: mysql:5.7
+    restart: always
+    container_name: mysql
+    environment:
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - mysql_db:/var/lib/mysql
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq-local'
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq/
+      - rabbitmq-log:/var/log/rabbitmq/
+    networks:
+      - rabbitmq_net
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - cache:/data
 volumes:
   mongodb-data:
-    external: true
   mongodb-config:
-    external: true
+  postgre-data:
+  rabbitmq-log:
+  rabbitmq-data:
+  mysql_db:
+  cache:
+    driver: local
 
 networks:
   my-network:
-    external: true
+    driver: bridge
+  rabbitmq_net:
+    driver: bridge
