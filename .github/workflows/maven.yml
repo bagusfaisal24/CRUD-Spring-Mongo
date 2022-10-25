@@ -34,3 +34,19 @@ jobs:
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Deploy on AWS EC2
+      env:
+        PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
+        HOSTNAME: ${{ secrets.AWS_HOSTNAME  }}
+        USER_NAME: ${{ secrets.AWS_USER  }}
+      run: |
+        echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
+        echo "$HOSTNAME"
+        echo "$USER_NAME"
+        ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@${HOSTNAME} '
+          #Now we have got the access of EC2 and we will start the deploy
+          cd /home/app &&
+          sudo chmod +x deploy.sh &&
+          sh deploy.sh
+        '
+        rm -rf private_key.pem
